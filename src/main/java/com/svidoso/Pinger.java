@@ -15,7 +15,6 @@ public class Pinger {
     Thread worker;
 
     private Map<String, List<String>> hostsPerVar;
-    private Map<String, Long> lastContact = new HashMap<>();
 
     private WebUpdater webUpdater;
     private long intervalMS = 10000;
@@ -39,12 +38,8 @@ public class Pinger {
         while(!quit){
             hostsPerVar.forEach((key, value) -> {
                 try {
-                    lastContact.putIfAbsent(key, 0L);
-                    if (value.stream().noneMatch(this::isReachable)) {
-                        webUpdater.updateVariable(key, System.currentTimeMillis() / 1000 - lastContact.get(key));
-                    } else {
-                        webUpdater.updateVariable(key, 0);
-                        lastContact.put(key, System.currentTimeMillis() / 1000);
+                    if (value.stream().anyMatch(this::isReachable)) {
+                        webUpdater.updateVariable(key, System.currentTimeMillis()/1000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
