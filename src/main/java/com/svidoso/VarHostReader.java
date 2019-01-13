@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class VarHostReader {
 
@@ -25,7 +26,7 @@ public class VarHostReader {
 
         props.entrySet().forEach(objectObjectEntry -> {
             List<String> hosts = Arrays.asList(objectObjectEntry.getValue().toString().split(","));
-            hostsPerVar.put((String) objectObjectEntry.getKey(), hosts);
+            hostsPerVar.put((String) objectObjectEntry.getKey(), hosts.stream().map(String::trim).collect(Collectors.toList()));
         });
 
         log.info(hostsPerVar.toString());
