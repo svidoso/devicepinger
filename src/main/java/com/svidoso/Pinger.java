@@ -1,11 +1,17 @@
 package com.svidoso;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Pinger {
+
+    Logger log = LoggerFactory.getLogger(Pinger.class.getSimpleName());
+
     Thread worker;
 
     private Map<String, List<String>> hostsPerVar;
@@ -57,7 +63,7 @@ public class Pinger {
             InetAddress address = InetAddress.getByName(host);
             return address.isReachable(500);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
         return false;
     }
