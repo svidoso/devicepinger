@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 public class App{
 
-    private static final String DEVICEVARS_FILE = "src/main/resources/devicevars.properties";
+    private static final String DEVICEVARS_FILE = "/devicevars.properties";
     private static long interval_s=60;
 
         public static void main(String[] args) throws IOException, InterruptedException {

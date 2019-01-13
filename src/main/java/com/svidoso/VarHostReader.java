@@ -22,7 +22,7 @@ public class VarHostReader {
         hostsPerVar.clear();
 
         Properties props = new Properties();
-        props.load(new FileInputStream(propertiesFile));
+        props.load(VarHostReader.class.getResourceAsStream(propertiesFile));
 
         props.entrySet().forEach(objectObjectEntry -> {
             List<String> hosts = Arrays.asList(objectObjectEntry.getValue().toString().split(","));
