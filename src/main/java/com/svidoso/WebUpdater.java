@@ -12,8 +12,8 @@ public class WebUpdater {
 
     Logger log = LoggerFactory.getLogger(VarHostReader.class.getSimpleName());
 
-    void updateVariable(String ise_id, long seconds) throws Exception {
-        String url = "http://ccu3-webui/addons/xmlapi/statechange.cgi?ise_id=" + ise_id + "&new_value=" + seconds;
+    void updateVariable(String ise_id, long timestamp_s) throws Exception {
+        String url = "http://ccu3-webui/addons/xmlapi/statechange.cgi?ise_id=" + ise_id + "&new_value=" + timestamp_s;
         log.info("Sending: " + url);
         getHTML(url);
     }
