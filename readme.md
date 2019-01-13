@@ -4,7 +4,7 @@ Will update "Systemvariablen" in homematic ccu3 based on last successful
 ping of specified devices in "src/main/resources/devicevars.properties".
 Might need to adjust url in WebUpdater.java.
 
-#### CCU3 Dependancies
+#### CCU3 Dependencies
 
 	"XML-API"
 	"HQ WebUI" (to find ise_id of systemvariable)
