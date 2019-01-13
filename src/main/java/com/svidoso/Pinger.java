@@ -11,15 +11,11 @@ import java.util.Optional;
 
 public class Pinger {
 
-    Logger log = LoggerFactory.getLogger(Pinger.class.getSimpleName());
-
-    Thread worker;
-
+    private Logger log = LoggerFactory.getLogger(Pinger.class.getSimpleName());
+    private Thread worker;
     private Map<String, List<String>> hostsPerVar;
-
     private WebUpdater webUpdater;
     private long intervalMS = 10000;
-
     private volatile boolean quit = false;
 
     public Pinger(WebUpdater webUpdater, Map<String, List<String>> hostsPerVar, long intervalMS) {

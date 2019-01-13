@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
 
 public class VarHostReader {
 
-    Logger log = LoggerFactory.getLogger(VarHostReader.class.getSimpleName());
-
+    private Logger log = LoggerFactory.getLogger(VarHostReader.class.getSimpleName());
     private Map<String, List<String>> hostsPerVar = new HashMap<>();
 
     public Map<String, List<String>> getHostsPerVar() {
